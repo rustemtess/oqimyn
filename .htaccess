@@ -1,0 +1,25 @@
+php_flag display_startup_errors off
+php_flag display_errors off
+php_flag html_errors off
+Options +FollowSymLinks
+RewriteEngine On
+
+# Исключаем файл /css/main.css из перенаправления
+RewriteCond %{REQUEST_URI} !^/css/main\.css$
+RewriteCond %{REQUEST_URI} !^/js/mobile\.js$
+RewriteCond %{REQUEST_URI} !^/js/script\.js$
+RewriteCond %{REQUEST_URI} !^/img/background\.png$
+RewriteCond %{REQUEST_URI} !^/img/certificate\.png$
+RewriteCond %{REQUEST_URI} !^/img/logo2\.png$
+RewriteCond %{REQUEST_URI} !^/img/logo\.svg$
+RewriteCond %{REQUEST_URI} !^/img/NU\.svg$
+RewriteCond %{REQUEST_URI} !^/img/rustem\.jpg$
+RewriteCond %{REQUEST_URI} !^/img/ramazan\.jpg$
+RewriteCond %{REQUEST_URI} !^/img/arnur\.jpg$
+RewriteCond %{REQUEST_URI} !^/img/aisara\.jpg$
+RewriteCond %{REQUEST_URI} !^/img/aruzhan\.PNG$
+RewriteCond %{REQUEST_URI} !^/img/bakytzhan\.webp$
+
+# Перенаправляем все запросы, кроме /index.php, на /index.php
+RewriteCond %{REQUEST_URI} !=/index.php
+RewriteRule .* /index.php [L]
